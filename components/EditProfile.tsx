@@ -6,6 +6,7 @@ import {
   Text,
   TextInput,
 } from "react-native";
+import ColorInput from "./ColorInput";
 
 interface Props {
   editMode: boolean;
@@ -67,22 +68,7 @@ const EditProfile: React.FC<Props> = ({
 
         <View style={{ flexDirection: "row", alignItems: "center" }}>
           <Text style={{ color: "#f1f1f1", fontSize: 16 }}>Select Color:</Text>
-          <TextInput
-            keyboardType="default"
-            value={color}
-            // onFocus={() => setColor("#")}
-            onChangeText={setColor}
-            style={{
-              //   height: 40,
-              textAlign: "center",
-              margin: 12,
-              width: 120,
-              backgroundColor: color,
-              borderWidth: 2,
-              borderRadius: 100,
-              padding: 4,
-            }}
-          />
+          <ColorInput color={color} setColor={setColor} />
         </View>
 
         <View style={{ flexDirection: "row", alignItems: "center" }}>
