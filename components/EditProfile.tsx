@@ -47,7 +47,7 @@ const EditProfile: React.FC<Props> = ({
         }}
       >
         <View style={{ flexDirection: "row", alignItems: "center" }}>
-          <Text style={{ color: "#f1f1f1", fontSize: 16 }}>Select Emoji:</Text>
+          <Text style={{ color: "#f1f1f1", fontSize: 16 }}>select emoji:</Text>
           <TextInput
             keyboardType="default"
             value={emoji}
@@ -67,13 +67,13 @@ const EditProfile: React.FC<Props> = ({
         </View>
 
         <View style={{ flexDirection: "row", alignItems: "center" }}>
-          <Text style={{ color: "#f1f1f1", fontSize: 16 }}>Select Color:</Text>
+          <Text style={{ color: "#f1f1f1", fontSize: 16 }}>select color:</Text>
           <ColorInput color={color} setColor={setColor} />
         </View>
 
         <View style={{ flexDirection: "row", alignItems: "center" }}>
           <Text style={{ color: "#f1f1f1", fontSize: 16 }}>
-            Select Username:
+            select username:
           </Text>
           <TextInput
             keyboardType="default"
@@ -100,10 +100,10 @@ const EditProfile: React.FC<Props> = ({
               paddingVertical: 4,
               borderRadius: 32,
               color: "#1a1a1a",
-              backgroundColor: "#88DDFF",
+              backgroundColor: "#5CE4C7",
             }}
           >
-            UPDATE
+            update
           </Text>
         </TouchableOpacity>
       </View>
