@@ -4,11 +4,10 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
-  Modal,
-  Alert,
   FlatList,
 } from "react-native";
 import * as Contacts from "expo-contacts";
+import ContactSearch from "@/components/ContactSearch";
 
 export default function AddScreen() {
   const [name, setName] = useState<string>("");
@@ -117,63 +116,12 @@ export default function AddScreen() {
         <Text>select people</Text>
       </TouchableOpacity>
       {searchContacts ? (
-        <Modal
-          animationType="slide"
-          visible={searchContacts}
-          onRequestClose={() => {
-            Alert.alert("Modal has been closed.");
-            setSearchContacts(!searchContacts);
-          }}
-        >
-          <View
-            style={{
-              height: "100%",
-              backgroundColor: "#1a1a1a",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <Text style={{ color: "#f1f1f1", margin: 12 }}>people</Text>
-            <FlatList
-              data={phoneContacts}
-              renderItem={({ item }) => (
-                <TouchableOpacity
-                  onPress={() => {
-                    selectContacts((contacts) => [...contacts, item]);
-                    setSearchContacts(!searchContacts);
-                  }}
-                >
-                  <Text
-                    style={{
-                      color: "#f1f1f1",
-                      margin: 16,
-                      fontSize: 16,
-                    }}
-                  >
-                    {item.name ? item.name.toString() : ""}
-                  </Text>
-                </TouchableOpacity>
-              )}
-            />
-            <TouchableOpacity
-              onPress={() => setSearchContacts(!searchContacts)}
-            >
-              <Text
-                style={{
-                  margin: 16,
-                  fontSize: 20,
-                  paddingHorizontal: 32,
-                  paddingVertical: 4,
-                  borderRadius: 32,
-                  color: "#1a1a1a",
-                  backgroundColor: "#5CE4C7",
-                }}
-              >
-                close
-              </Text>
-            </TouchableOpacity>
-          </View>
-        </Modal>
+        <ContactSearch
+          searchContacts={searchContacts}
+          phoneContacts={phoneContacts}
+          selectContacts={selectContacts}
+          setSearchContacts={setSearchContacts}
+        />
       ) : null}
     </View>
   );
