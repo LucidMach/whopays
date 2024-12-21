@@ -8,9 +8,9 @@ import {
 } from "react-native";
 import * as Contacts from "expo-contacts";
 import ContactSearch from "@/components/ContactSearch";
-import PieChart from "react-native-pie-chart";
 
 import { background, foreground, primary } from "@/constants/colors";
+import SplitChart from "@/components/SplitChart";
 
 export default function AddScreen() {
   const [name, setName] = useState<string>("");
@@ -116,7 +116,7 @@ export default function AddScreen() {
         }}
         onPress={() => setSearchContacts((search) => !search)}
       >
-        <Text>select people</Text>
+        <Text>add people</Text>
       </TouchableOpacity>
       {searchContacts ? (
         <ContactSearch
@@ -124,6 +124,12 @@ export default function AddScreen() {
           phoneContacts={phoneContacts}
           selectContacts={selectContacts}
           setSearchContacts={setSearchContacts}
+        />
+      ) : null}
+      {selectedContacts.length > 1 ? (
+        <SplitChart
+          noOfContacts={selectedContacts.length}
+          splitAmount={amount}
         />
       ) : null}
     </View>
