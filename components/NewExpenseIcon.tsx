@@ -1,5 +1,6 @@
 import { Text, View } from "react-native";
 import { DarkTheme } from "@react-navigation/native";
+import { foreground, foregroundTint } from "@/constants/colors";
 
 interface Props {
   focused: boolean;
@@ -17,7 +18,9 @@ const NewExpenseIcon: React.FC<Props> = ({ focused }) => {
         alignItems: "center",
       }}
     >
-      <Text style={{ color: focused ? "#f1f1f1" : "#a1a1a1", fontSize: 32 }}>
+      <Text
+        style={{ color: focused ? foreground : foregroundTint, fontSize: 32 }}
+      >
         +
       </Text>
     </View>

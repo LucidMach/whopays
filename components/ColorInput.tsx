@@ -1,3 +1,4 @@
+import { foreground, foregroundTint } from "@/constants/colors";
 import React, { useState } from "react";
 
 import {
@@ -17,7 +18,6 @@ import Animated, {
 import ColorPicker, {
   Panel2,
   OpacitySlider,
-  colorKit,
   BrightnessSlider,
   InputWidget,
 } from "reanimated-color-picker";
@@ -86,13 +86,13 @@ const ColorInput: React.FC<Props> = ({ color, setColor }) => {
                 <View style={styles.previewTxtContainer}>
                   <InputWidget
                     inputStyle={{
-                      color: "#fff",
+                      color: foreground,
                       paddingVertical: 2,
-                      borderColor: "#707070",
+                      borderColor: foregroundTint,
                       fontSize: 12,
                       marginLeft: 5,
                     }}
-                    iconColor="#707070"
+                    iconColor={foregroundTint}
                   />
                 </View>
               </ColorPicker>
@@ -106,7 +106,9 @@ const ColorInput: React.FC<Props> = ({ color, setColor }) => {
               setShowModal(false);
             }}
           >
-            <Text style={{ color: "#707070", fontWeight: "bold" }}>Close</Text>
+            <Text style={{ color: foregroundTint, fontWeight: "bold" }}>
+              Close
+            </Text>
           </Pressable>
         </Animated.View>
       </Modal>

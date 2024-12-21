@@ -1,13 +1,14 @@
 import EditButton from "@/components/EditButton";
 import EditProfile from "@/components/EditProfile";
 import Profile from "@/components/Profile";
+import { background, foreground } from "@/constants/colors";
 import { useState } from "react";
 import { View, Text } from "react-native";
 
 export default function SettingsScreen() {
   const [editMode, setEditMode] = useState<boolean>(false);
   const [emoji, setEmoji] = useState<string>("👀");
-  const [color, setColor] = useState<string>("#f1f1f1");
+  const [color, setColor] = useState<string>(foreground);
   const [username, setUsername] = useState<string>("lucidmach");
 
   return (
@@ -15,7 +16,7 @@ export default function SettingsScreen() {
       style={{
         height: "100%",
         justifyContent: "center",
-        backgroundColor: "#1a1a1a",
+        backgroundColor: background,
         alignItems: "center",
       }}
     >

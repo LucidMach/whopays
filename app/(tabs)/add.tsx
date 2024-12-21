@@ -8,6 +8,9 @@ import {
 } from "react-native";
 import * as Contacts from "expo-contacts";
 import ContactSearch from "@/components/ContactSearch";
+import PieChart from "react-native-pie-chart";
+
+import { background, foreground, primary } from "@/constants/colors";
 
 export default function AddScreen() {
   const [name, setName] = useState<string>("");
@@ -34,7 +37,7 @@ export default function AddScreen() {
   return (
     <View
       style={{
-        backgroundColor: "#1a1a1a",
+        backgroundColor: background,
         height: "100%",
         justifyContent: "center",
         alignItems: "center",
@@ -45,12 +48,12 @@ export default function AddScreen() {
         value={name}
         onChangeText={setName}
         placeholder="enter expense name"
-        placeholderTextColor="#1a1a1a"
+        placeholderTextColor={background}
         style={{
           textAlign: "center",
           width: "80%",
           margin: 12,
-          backgroundColor: "#f1f1f1",
+          backgroundColor: foreground,
           borderWidth: 2,
           borderRadius: 200,
           padding: 12,
@@ -61,12 +64,12 @@ export default function AddScreen() {
         value={amount === 0 ? "" : amount.toString()}
         onChangeText={(input) => setAmount(parseInt(input))}
         placeholder="enter expense amount"
-        placeholderTextColor="#1a1a1a"
+        placeholderTextColor={background}
         style={{
           textAlign: "center",
           margin: 12,
           width: "80%",
-          backgroundColor: "#f1f1f1",
+          backgroundColor: foreground,
           borderWidth: 2,
           borderRadius: 200,
           padding: 12,
@@ -86,9 +89,9 @@ export default function AddScreen() {
             >
               <Text
                 style={{
-                  color: "#f1f1f1",
+                  color: foreground,
                   margin: 12,
-                  borderColor: "#5CE4C7",
+                  borderColor: primary,
                   borderWidth: 2,
                   textAlign: "center",
                   padding: 8,
@@ -104,7 +107,7 @@ export default function AddScreen() {
       <TouchableOpacity
         style={{
           width: "80%",
-          backgroundColor: "#5CE4C7",
+          backgroundColor: primary,
           justifyContent: "center",
           alignItems: "center",
           padding: 12,

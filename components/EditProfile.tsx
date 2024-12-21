@@ -7,6 +7,7 @@ import {
   TextInput,
 } from "react-native";
 import ColorInput from "./ColorInput";
+import { background, foreground, primary } from "@/constants/colors";
 
 interface Props {
   editMode: boolean;
@@ -41,13 +42,13 @@ const EditProfile: React.FC<Props> = ({
       <View
         style={{
           height: "100%",
-          backgroundColor: "#1a1a1a",
+          backgroundColor: background,
           justifyContent: "center",
           alignItems: "center",
         }}
       >
         <View style={{ flexDirection: "row", alignItems: "center" }}>
-          <Text style={{ color: "#f1f1f1", fontSize: 16 }}>select emoji:</Text>
+          <Text style={{ color: foreground, fontSize: 16 }}>select emoji:</Text>
           <TextInput
             keyboardType="default"
             value={emoji}
@@ -58,7 +59,7 @@ const EditProfile: React.FC<Props> = ({
               textAlign: "center",
               margin: 12,
               width: 120,
-              backgroundColor: "#f1f1f1",
+              backgroundColor: foreground,
               borderWidth: 2,
               borderRadius: 100,
               padding: 4,
@@ -67,12 +68,12 @@ const EditProfile: React.FC<Props> = ({
         </View>
 
         <View style={{ flexDirection: "row", alignItems: "center" }}>
-          <Text style={{ color: "#f1f1f1", fontSize: 16 }}>select color:</Text>
+          <Text style={{ color: foreground, fontSize: 16 }}>select color:</Text>
           <ColorInput color={color} setColor={setColor} />
         </View>
 
         <View style={{ flexDirection: "row", alignItems: "center" }}>
-          <Text style={{ color: "#f1f1f1", fontSize: 16 }}>
+          <Text style={{ color: foreground, fontSize: 16 }}>
             select username:
           </Text>
           <TextInput
@@ -84,7 +85,7 @@ const EditProfile: React.FC<Props> = ({
               textAlign: "center",
               margin: 12,
               width: 120,
-              backgroundColor: "#f1f1f1",
+              backgroundColor: foreground,
               borderWidth: 2,
               borderRadius: 100,
               padding: 4,
@@ -99,8 +100,8 @@ const EditProfile: React.FC<Props> = ({
               paddingHorizontal: 32,
               paddingVertical: 4,
               borderRadius: 32,
-              color: "#1a1a1a",
-              backgroundColor: "#5CE4C7",
+              color: background,
+              backgroundColor: primary,
             }}
           >
             update

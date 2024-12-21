@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import Svg, { Path } from "react-native-svg";
 import * as Contacts from "expo-contacts";
+import { background, foreground, primary } from "@/constants/colors";
 
 interface Props {
   searchContacts: boolean;
@@ -46,7 +47,7 @@ const ContactSearch: React.FC<Props> = ({
       <View
         style={{
           height: "100%",
-          backgroundColor: "#1a1a1a",
+          backgroundColor: background,
           justifyContent: "space-between",
           alignItems: "center",
         }}
@@ -58,16 +59,16 @@ const ContactSearch: React.FC<Props> = ({
             width: "80%",
             borderWidth: 2,
             borderRadius: 200,
-            borderColor: "#5CE4C7",
+            borderColor: primary,
             flexDirection: "row",
             gap: 16,
           }}
         >
-          <Svg width="24" height="24" viewBox="0 0 24 24" fill="#5CE4C7">
+          <Svg width="24" height="24" viewBox="0 0 24 24" fill={primary}>
             <Path d="M23.111 20.058l-4.977-4.977c.965-1.52 1.523-3.322 1.523-5.251 0-5.42-4.409-9.83-9.829-9.83-5.42 0-9.828 4.41-9.828 9.83s4.408 9.83 9.829 9.83c1.834 0 3.552-.505 5.022-1.383l5.021 5.021c2.144 2.141 5.384-1.096 3.239-3.24zm-20.064-10.228c0-3.739 3.043-6.782 6.782-6.782s6.782 3.042 6.782 6.782-3.043 6.782-6.782 6.782-6.782-3.043-6.782-6.782zm2.01-1.764c1.984-4.599 8.664-4.066 9.922.749-2.534-2.974-6.993-3.294-9.922-.749z" />
           </Svg>
           <TextInput
-            style={{ color: "#5CE4C7", flexGrow: 1 }}
+            style={{ color: primary, flexGrow: 1 }}
             placeholder="search for contacts"
             value={searchName}
             onChangeText={setSearchName}
@@ -85,7 +86,7 @@ const ContactSearch: React.FC<Props> = ({
             >
               <Text
                 style={{
-                  color: "#f1f1f1",
+                  color: foreground,
                   margin: 16,
                   fontSize: 16,
                 }}
@@ -106,8 +107,8 @@ const ContactSearch: React.FC<Props> = ({
               paddingHorizontal: 32,
               paddingVertical: 4,
               borderRadius: 32,
-              color: "#1a1a1a",
-              backgroundColor: "#5CE4C7",
+              color: background,
+              backgroundColor: primary,
             }}
           >
             close

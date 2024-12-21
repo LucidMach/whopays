@@ -1,6 +1,7 @@
 import HomeIcon from "@/components/HomeIcon";
 import NewExpenseIcon from "@/components/NewExpenseIcon";
 import SettingsIcon from "@/components/SettingsIcon";
+import { foreground, foregroundTint } from "@/constants/colors";
 import { Tabs } from "expo-router";
 import React from "react";
 import { Platform } from "react-native";
@@ -9,8 +10,8 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: "#f1f1f1",
-        tabBarInactiveTintColor: "#a1a1a1",
+        tabBarActiveTintColor: foreground,
+        tabBarInactiveTintColor: foregroundTint,
         headerShown: false,
         tabBarStyle: Platform.select({
           ios: {

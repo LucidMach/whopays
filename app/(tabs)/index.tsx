@@ -1,3 +1,4 @@
+import { foreground } from "@/constants/colors";
 import { Text, View } from "react-native";
 
 export default function HomeScreen() {
@@ -9,7 +10,7 @@ export default function HomeScreen() {
         alignItems: "center",
       }}
     >
-      <Text style={{ color: "#f1f1f1", margin: 20, fontSize: 64 }}>💸</Text>
+      <Text style={{ color: foreground, margin: 20, fontSize: 64 }}>💸</Text>
     </View>
   );
 }

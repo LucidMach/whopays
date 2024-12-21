@@ -1,3 +1,4 @@
+import { foreground, foregroundTint, primary } from "@/constants/colors";
 import { View } from "react-native";
 import Svg, { Path } from "react-native-svg";
 
@@ -10,7 +11,7 @@ const SettingsIcon: React.FC<Props> = ({ focused }) => {
     <View style={{ top: 10 }}>
       <Svg
         // xmlns="http://www.w3.org/2000/svg"
-        fill={focused ? "#f1f1f1" : "#a1a1a1"}
+        fill={focused ? foreground : foregroundTint}
         width="24"
         height="24"
         viewBox="0 0 24 24"
