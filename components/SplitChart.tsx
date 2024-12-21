@@ -1,19 +1,24 @@
 import {
   background,
   backgroundTint,
+  foreground,
   primary,
   primaryHSV,
   primaryTintHSV,
 } from "@/constants/colors";
-import { Text, View } from "react-native";
+import { FlatList, Text, TouchableOpacity, View } from "react-native";
 import { useEffect, useRef, useState } from "react";
 import PieChart from "react-native-pie-chart";
-import { hsvToColor } from "react-native-reanimated/lib/typescript/Colors";
 import Slider from "@react-native-community/slider";
+
+// types
+import { Contact } from "expo-contacts";
 
 interface Props {
   noOfContacts: number;
   splitAmount: number;
+  selectedContacts: Contact[];
+  selectContacts: React.Dispatch<React.SetStateAction<Contact[]>>;
 }
 
 function hslToHex(h: number, s: number, l: number) {
@@ -29,7 +34,12 @@ function hslToHex(h: number, s: number, l: number) {
   return `#${f(0)}${f(8)}${f(4)}`;
 }
 
-const SplitChart: React.FC<Props> = ({ noOfContacts, splitAmount }) => {
+const SplitChart: React.FC<Props> = ({
+  noOfContacts,
+  splitAmount,
+  selectedContacts,
+  selectContacts,
+}) => {
   const [series, setSeries] = useState<number[]>([10]);
   const [sliceColor, setSliceColor] = useState<string[]>(["#000"]);
 
@@ -54,7 +64,9 @@ const SplitChart: React.FC<Props> = ({ noOfContacts, splitAmount }) => {
   }, [noOfContacts]);
 
   return (
-    <View style={{ justifyContent: "center", alignItems: "center" }}>
+    <View
+      style={{ justifyContent: "center", alignItems: "center", width: "100%" }}
+    >
       <PieChart
         style={{ margin: 12 }}
         widthAndHeight={128}
@@ -63,28 +75,57 @@ const SplitChart: React.FC<Props> = ({ noOfContacts, splitAmount }) => {
         coverRadius={0.45}
         coverFill={background}
       />
-      <Text>
-        Person{1}: {series[0]}
-      </Text>
-      <Slider
-        style={{ width: 200, height: 40 }}
-        minimumValue={0}
-        maximumValue={splitAmount}
-        value={series[0]}
-        onValueChange={(value) => {
-          const nextSeries = series.map((val, i) => {
-            if (i === 0) {
-              // Increment the clicked counter
-              return value;
-            } else {
-              // The rest haven't changed
-              return val;
-            }
-          });
-          setSeries(nextSeries);
-        }}
-        minimumTrackTintColor={primary}
-        maximumTrackTintColor={backgroundTint}
+      <FlatList
+        style={{ flexGrow: 0, width: "80%", margin: 12 }}
+        data={selectedContacts}
+        renderItem={({ item, index }) => (
+          <View key={item.id}>
+            <TouchableOpacity
+              onPress={() => {
+                selectContacts((contacts) =>
+                  contacts.filter((contact) => contact !== item)
+                );
+              }}
+            >
+              <Text
+                style={{
+                  color: foreground,
+                  margin: 12,
+                  borderColor: primary,
+                  borderWidth: 2,
+                  textAlign: "center",
+                  padding: 8,
+                  borderRadius: 200,
+                }}
+              >
+                {item.name ? item.name.toString() : ""}: {series[index]}
+              </Text>
+            </TouchableOpacity>
+            <Slider
+              // haptic feedback on full numbers
+              // float processing
+              style={{ width: "100%", height: 40 }}
+              minimumValue={0}
+              maximumValue={splitAmount}
+              value={series[index]}
+              step={1}
+              onValueChange={(value) => {
+                const nextSeries = series.map((val, i) => {
+                  if (i === index) {
+                    // Increment the clicked counter
+                    return value;
+                  } else {
+                    // The rest haven't changed
+                    return val;
+                  }
+                });
+                setSeries(nextSeries);
+              }}
+              minimumTrackTintColor={primary}
+              maximumTrackTintColor={backgroundTint}
+            />
+          </View>
+        )}
       />
     </View>
   );
