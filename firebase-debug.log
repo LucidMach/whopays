@@ -1,0 +1,29 @@
+[debug] [2024-12-23T16:32:36.484Z] ----------------------------------------------------------------------
+[debug] [2024-12-23T16:32:36.486Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Anerudh\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2024-12-23T16:32:36.486Z] CLI Version:   13.11.2
+[debug] [2024-12-23T16:32:36.486Z] Platform:      win32
+[debug] [2024-12-23T16:32:36.486Z] Node Version:  v20.11.0
+[debug] [2024-12-23T16:32:36.486Z] Time:          Tue Dec 24 2024 03:32:36 GMT+1100 (Australian Eastern Daylight Time)
+[debug] [2024-12-23T16:32:36.486Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-12-23T16:32:36.489Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-12-23T16:32:36.489Z] > authorizing via signed-in user (varunveerbadra1@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  D:\Projects\Splitwiser-master
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  If you want to create a project in a Google Cloud organization or folder, please use "firebase projects:create" instead, and return to this command when you've created the project. 
